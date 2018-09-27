@@ -53,16 +53,20 @@ def select_sort(tab):
         return a
 
 def insertion_sort(tab):
-        a = 0
-        for i in range(1,len(tab)):
-                current = tab[i]
-                while (i > 0 and tab[i-1]>current):
-                        tab[i] = tab[i-1]
-                        i-=1
-                        tab[i] = current
-                        a+=1
-        a+=1
-        return a
+        count = 0
+        i = 1
+        while (i < len(tab)):
+                elem = tab[i]
+                j = i
+                while (j >= 0 and tab[j-1] > elem):
+                        tab[j] = tab[j-1]
+                        j = j - 1
+                        count += 1
+                        if (tab[j] == tab[j-1]):
+                                count+=2
+                tab[j] = elem
+                i += 1
+        return count
 
 def bubble_sort(tab):
         a = 0
